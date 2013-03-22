@@ -1,4 +1,14 @@
-Template_Heroku_Spring3MVC
-==========================
+# Spring MVC and Hibernate template application
 
-Based on the Heroku example for Spring MVC Tomcat Hibernate this example includes test code and an extra use case.
+This is a template for a web application that uses Spring MVC and Hibernate. The sample code is a simple CRUD page that manipulates records for a single model object.
+
+## Running the application locally
+
+First build with:
+
+    $mvn clean install
+
+Then run it with:
+
+    $java -jar target/dependency/webapp-runner.jar target/*.war
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  <!-- the application context definition for the springapp DispatcherServlet -->
+
+  <bean id="personService" class="com.example.service.PersonServiceIml">
+    <property name="people">
+            <list>
+                <ref bean="person1"/>
+                <ref bean="person2"/>
+                <ref bean="person3"/>
+            </list> 
+    </property>
+  </bean>
+        
+  	
+    <bean id="person1" class="com.example.model.Person">
+        <property name="firstName" value="John"/>
+        <property name="lastName" value="Doe"/>
+    </bean>
+    <bean id="person2" class="com.example.model.Person">
+        <property name="firstName" value="Jenny"/>
+        <property name="lastName" value="Dean"/>
+    </bean>
+    <bean id="person3" class="com.example.model.Person">
+        <property name="firstName" value="me"/>
+        <property name="lastName" value="too"/>
+    </bean>
+
+    <bean name="/people.htm" class="com.example.controller.PersonController">
+        <property name="personService" ref="personService" />
+    </bean>
+
+</beans>
